@@ -12,3 +12,5 @@ matrix:
     env:
       global:
         - PGPORT=5433
+        - PGHOST=localhost
+        - PGUSER=postgres
