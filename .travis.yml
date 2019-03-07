@@ -16,6 +16,3 @@ matrix:
         packages:
         - postgresql-10
         - postgresql-client-10
-    env:
-      - PGUSER=testuser
-      - PGPASSWORD=password
