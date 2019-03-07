@@ -1,9 +1,12 @@
 const { Client } = require('pg')
 
 
+process.env.PGUSER = 'testuser'
+process.env.PGPASSWORD = 'password'
 async function run() {
-  console.log('$PGHOST', process.env.PGHOST)
-  console.log('$PGPORT', process.env.PGPORT)
+  Object.keys(process.env).filter(key => key.startsWith('PG')).forEach(key => {
+    console.log(key, process.env[key])
+  })
   const client = new Client()
   await client.connect()
   const { rows } = await client.query('SELECT version()')
@@ -11,4 +14,4 @@ async function run() {
   await client.end()
 }
 
-run().catch(e => console.log(error) || process.exit(-1))
+run().catch(error => console.log(error) || process.exit(-1))
