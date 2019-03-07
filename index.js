@@ -1,6 +1,8 @@
 const { Client } = require('pg')
 
 
+process.env.PGUSER = 'testuser'
+process.env.PGPASSWORD = 'password'
 async function run() {
   Object.keys(process.env).filter(key => key.startsWith('PG')).forEach(key => {
     console.log(key, process.env[key])
