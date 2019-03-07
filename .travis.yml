@@ -11,6 +11,7 @@ matrix:
         - postgresql-client-10
     env:
       global:
-      - PGPORT=5433
-      - PGHOST=localhost
-      - PGUSER=postgres
+        - PGPORT=5433
+      matrix:
+        - PGHOST=localhost
+        - PGUSER=postgres
