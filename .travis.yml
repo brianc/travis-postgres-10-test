@@ -1,17 +1,18 @@
 language: node_js
+sudo: true
+env:
+  global:
+    - PGPORT=5433
 
 matrix:
   include:
   - node_js: "lts/dubnium"
+    before_install:
+      - sudo -u postgres psql -c "CREATE USER testuser WITH PASSWORD 'password'"
+      - sudo -u postgres psql -c "ALTER ROLE testuser SUPERUSER"
     addons:
       postgresql: "10"
       apt:
         packages:
         - postgresql-10
         - postgresql-client-10
-    env:
-      global:
-        - PGPORT=5433
-      matrix:
-        - PGHOST=localhost
-        - PGUSER=postgres
