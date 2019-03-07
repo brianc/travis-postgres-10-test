@@ -1,9 +1,5 @@
 language: node_js
 sudo: true
-env:
-  global:
-    - PGPORT=5433
-
 matrix:
   include:
   - node_js: "lts/dubnium"
@@ -16,3 +12,6 @@ matrix:
         packages:
         - postgresql-10
         - postgresql-client-10
+    env:
+      global:
+        - PGPORT=5433
