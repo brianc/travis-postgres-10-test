@@ -1,17 +1,1 @@
 language: node_js
-sudo: false
-dist: trusty
-
-matrix:
-  include:
-    - node_js: "lts/boron"
-    addons:
-      postgresql: "10"
-      apt:
-        packages:
-        - postgresql-10
-        - postgresql-client-10
-    env:
-      global:
-        - PGPORT=5433
-        - TEST=true
